@@ -2,6 +2,7 @@
 
 def juego():
     import random
+    import os
     puntos=0
     respuesta=0
 
@@ -12,7 +13,10 @@ def juego():
     jugadas=0
     aciertos=0
 
-
+    print("El juego consiste en adivinar dentro de 4 opciones en decimal, cual corresponde a un numero en binario")
+    print("Solo se permiten 3 intentos fallidos en general, cada acierto otorga 1000 puntos")
+    continuar=input("Presione una tecla para continuar")
+    os.system("cls")
     while intentos > 0:
         #Se definen opciones aleatorias
         for key in opciones:
@@ -46,7 +50,4 @@ def juego():
 
     print(f"Juego terminado!")
     print(f"Jugadas: {jugadas}, aciertos: {aciertos}, Puntos:{puntos}")
-
-
-juego()
 
