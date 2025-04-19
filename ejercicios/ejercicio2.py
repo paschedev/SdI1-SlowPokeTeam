@@ -33,5 +33,3 @@ def decimal_a_binario():
     print(f"El número decimal {numero} es el siguiente binario: {binario}")
 
 
-#Programa principal
-decimal_a_binario()
