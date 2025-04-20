@@ -28,7 +28,7 @@ def juego_run():
                 print(f"Cual es en decimal el numero {bin(respuesta)} ? ")
                 print(f"A- {opciones['a']}  C- {opciones['c']}")
                 print(f"B- {opciones['b']}  D- {opciones['d']}")
-                print(f"\n\n puntos: {puntos} | Intentos disponibles: {3-intentos}")
+                print(f"\n\n puntos: {puntos} | Intentos disponibles: {intentos}")
                 eleccion=input()
             except ValueError:
                 print("Solo se aceptan letras a b c d")
