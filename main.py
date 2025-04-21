@@ -5,6 +5,7 @@ sys.path.append('./ejercicios')
 # IMPORTACIONES DE MODULOS
 import ejercicio1
 import ejercicio2
+import ejercicio4
 
 """
     Presentacion del Trabajo Practico
@@ -42,7 +43,7 @@ def menu():
                 #ejercicio3()
             case '4':
                 print('Ejercicio 4')
-                #ejercicio4()
+                ejercicio4.main()
             case '0':
                 print('Gracias por usar nuestro programa! Vuelve pronto!')
                 break
