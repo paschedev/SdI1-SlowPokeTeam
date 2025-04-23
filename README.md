@@ -1,6 +1,16 @@
-# <center>TP grupal Sistema de Integracion 1</center>
-### <center>SlowPoke Team</center>
+<h1 align="center">TP Grupal de Integracion n°1</h1>
+<h2 align="center">SlowPoke Team</h2>
 
+## Integrantes
+- Gaston Paschetta
+- Javier Ovelar
+- Bruno Maza
+- Celeste Monsalbe Gutierrez
+- Karina Rodriguez
+
+## Descripción
+Trabajo de integración entre Programación I y Matematica.
+A traves de código en python representaremos ejercicios referidos a matematica, más especificamente a temas relacionados con el sistema binario.
 
 ## Pasos para Trabajar en Equipo sin Conflictos
 

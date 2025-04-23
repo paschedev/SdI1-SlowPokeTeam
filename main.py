@@ -5,6 +5,7 @@ sys.path.append('./ejercicios')
 # IMPORTACIONES DE MODULOS
 import ejercicio1
 import ejercicio2
+import ejercicio3
 import ejercicio4
 
 """
@@ -25,10 +26,11 @@ def menu():
     while opcion != '0':
         print('Ejercicios disponibles (ingrese el numero del ejercicio):')
         print('')
-        print('1. Ejercicio 1')
-        print('2. Ejercicio 2')
-        print('3. Ejercicio 3')
-        print('4. Ejercicio 4')
+        print('1. Ejercicio 1 - Tabla de verdad')
+        print('2. Ejercicio 2 - Conversor decimal a binario')
+        print('3. Ejercicio 3 - Juego: Adivina el numero!')
+        print('4. Ejercicio 4 - Compuertas logicas')
+        print('5. Ejercicio 5')
         print('0. Salir')
 
         opcion = input('Ingrese una opcion: ')
@@ -39,11 +41,12 @@ def menu():
             case '2':
                 ejercicio2.decimal_a_binario()
             case '3':
-                print('Ejercicio 3')
-                #ejercicio3()
+                ejercicio3.juego_run()
             case '4':
-                print('Ejercicio 4')
                 ejercicio4.main()
+            case '5':
+                print('Ejercicio 5')
+                #ejercicio5()
             case '0':
                 print('Gracias por usar nuestro programa! Vuelve pronto!')
                 break
