@@ -1,7 +1,7 @@
 # Ejercicio 1 elaborado por: Karina Rodriguez
 # Tabla de verdad
 
-def reconocer_cantidad_variables(formula):
+def reconocer_variables(formula):
     # Reconocer que variables posee la formula
     variables = []
     if 'A' in formula:
@@ -20,15 +20,15 @@ def calcular_combinaciones(variables):
 def generar_tabla_completa(combinaciones, variables):
     table = []
     for i in range(combinaciones):
-        # transforma la posicion en binario (cortando el "0b" de la representacion del binario) 
-        # y rellena con ceros de acuerdo a la cantidad de variables q haya           
+        # transforma la posicion en binario (cortando el "0b" de la representacion del binario) con bin()
+        # y rellena con ceros de acuerdo a la cantidad de variables q haya usando zfill()          
         # Ejemplo: i = 1 -> '001' (si hay 3 variables) 
         binario = bin(i)[2:].zfill(len(variables))
         # Se crea un segundo array con los valores del binario
         tableRows = []
         for j in range(len(binario)): 
             tableRows.append(int(binario[j]))   
-        # Se agrega el array para ir armando la tabla
+        # Se agrega el array para ir armando la tabla (matriz)
         table.append(tableRows)   
 
     return table   
@@ -41,13 +41,14 @@ def generar_tabla_parcial(variables):
         value = int(input(f'{variables[i]} = '))
         # Se agrega el valor de la variable al array 
         row.append(value)
-
+    # Se devuelve la matriz de una sola fila
     return [row] 
 
 def imprimir_tabla(tabla, variables, formula):
     variable_values = {}
     # Imprimir los nombres de las variables
-    print(f'{'  '.join(variables)}  f= {formula}')
+    print(f'{' | '.join(variables)} | f= {formula}')
+    print('------'*len(variables))
     for i in range(len(tabla)):
         # Asignar a cada variable su valor correspondiente para evaluarlo
         for j in range(len(variables)):
@@ -55,11 +56,11 @@ def imprimir_tabla(tabla, variables, formula):
 
         # Imprimir los valores de las variables y el resultado de la formula
         if len(variables) == 1:
-            print(f'{tabla[i][0]}  {int(eval(formula,variable_values))}')
+            print(f'{tabla[i][0]} | {int(eval(formula,variable_values))}')
         elif len(variables) == 2:
-            print(f'{tabla[i][0]}  {tabla[i][1]}  {int(eval(formula,variable_values))}')
+            print(f'{tabla[i][0]} | {tabla[i][1]} | {int(eval(formula,variable_values))}')
         elif len(variables) == 3:
-            print(f'{tabla[i][0]}  {tabla[i][1]}  {tabla[i][2]}  {int(eval(formula,variable_values))}')
+            print(f'{tabla[i][0]} | {tabla[i][1]} | {tabla[i][2]} | {int(eval(formula,variable_values))}')
 
 def formula_es_valida(formula):
     # Variables y operadores permitidos
@@ -105,7 +106,7 @@ def main():
 
     if respuesta == 'si':
         # Reconocer variables
-        variables = reconocer_cantidad_variables(formula)
+        variables = reconocer_variables(formula)
         if len(variables) == 0:
             print('No se ingresaron variables en mayuscula.')
             return
@@ -117,7 +118,7 @@ def main():
 
     elif respuesta == 'no':
         # Reconocer variables
-        variables = reconocer_cantidad_variables(formula)  
+        variables = reconocer_variables(formula)  
         if len(variables) == 0:
             print('No se ingresaron variables en mayuscula.')
             return      
@@ -148,10 +149,17 @@ def run():
     while repeat:
         main()
         # Opción para volver a utilizar el programa
-        print('Desea ingresar otra formula? (si/no)')    
-        if input('Respuesta: ') == 'no':
-            repeat = False
+        print('Desea ingresar otra formula? (si/no)') 
+        respuesta = input('Respuesta: ')
 
-    print('Gracias por usar la tabla de verdad!')
+        if respuesta.lower() == 'no':
+            break
+        elif respuesta.lower() == 'si':
+            print('-------------------------------------------------------------------------\n')
+        else:
+            print('No entendi su respuesta. Abortando mision por seguridad!!')
+            break
+
+    print('Gracias por usar la tabla de verdad! =D')
     print('#########################################################################')
 
