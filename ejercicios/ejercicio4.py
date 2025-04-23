@@ -1,14 +1,17 @@
 #Ejercicio Nº 4 desarrollado por: Gaston Paschetta
+
 #El programa debe pedir al usuario que ingrese valores binarios (0 o 1)
 #Luego debe elegir simular puertas logicas AND, OR y NOT
 #Como ampliacion del programa se añaden las puertas NAND, NOR y XOR
-#El programa debe mostrar el resultado de la puerta logica elegida
+#El programa debe mostrar el resultado de la puerta logica elegida y segun los valores ingresados por el usuario
 
 #Funciones
 def main():
     print('\nBienvenido al ejercicio 4\n\n')
     puerta = puerta_logica_validada()
     ejecutar_puerta(puerta)
+
+    mantener_ejecucion()
 
 #Funcion que pide al usuario ingresar los valores a evaluar en las puertas logicas y valida que sean 0 o 1
 #Es utilizada por las funciones que imprimen las tablas de verdad
@@ -36,8 +39,8 @@ def puerta_logica_validada():
     print('Elija la puerta logica que desea simular:')
     print('1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XOR')
     puerta = (int(input('Ingrese el numero de la puerta logica: ')))
-    while puerta not in [1, 2, 3, 4, 5, 6]:
-        print('Opcion no valida. Intente nuevamente:\t1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XOR')
+    while puerta not in [0, 1, 2, 3, 4, 5, 6]:
+        print('Opcion no valida. Intente nuevamente:\t1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XO\n0. Salir del programa')
         puerta = int(input('Ingrese el numero de la puerta logica: '))
     return puerta
 
@@ -56,9 +59,12 @@ def ejecutar_puerta(puerta):
         tabla_nor(puerta)
     elif puerta == 6: #puerta XOR
         tabla_xor(puerta)
+    elif puerta == 0: #Salir del programa
+        print('Saliendo del programa...')
+        return
 
 #Las siguientes funciones imprimen cada tabla de verdad
-#Piden valores a travez de la funcion ingresar_valores() para posteriormente imprimir la tabla de verdad correspondiente
+#Piden valores a traves de la funcion ingresar_valores() para posteriormente imprimir la tabla de verdad correspondiente
 
 #AND
 def tabla_and(puerta):
@@ -101,6 +107,19 @@ def tabla_xor(puerta):
     print('Tabla de verdad XOR')
     print('A\tB\tA XOR B')
     print(f'{a}\t{b}\t{a != b}')
+
+
+#Funcion que pregunta al usuario si desea continuar ejecutando el programa o salir
+#Si el usuario ingresa 's', se vuelve a llamar a la funcion main()
+def mantener_ejecucion():
+    print('Desea continuar ejecutando el programa? (s/n)')
+    respuesta = input('Ingrese s para continuar o n para salir: ')
+    if respuesta.lower() == 's':
+        main()
+    elif respuesta.lower() == 'n':
+        print('Saliendo del programa...')
+    else:
+        print('Opcion no valida. Saliendo del programa...')
 
 
 #Main
