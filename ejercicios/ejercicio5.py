@@ -1,12 +1,34 @@
-# Se importa el modulo time para usar retardos
-import time 
+#Contador binario hecho por Celeste Monsalbe
+#Se importa el modulo time para usar retardos
+import time
 
-print("Contador Binario con LEDs:\n")
+#Funcion que genera los leds
+def mostrar_led(numero, bits=4, retardo= 0.2):
+    binario = bin(numero)[2:].zfill(bits)
+    led_line = f"{numero:>2} -> {binario}  ["
+    for bit in binario:
+        led = "●" if bit == '1' else "○"
+        led_line += led
+        time.sleep(retardo)
+    led_line += "]"
+    return led_line
 
-#Bucle para recorrer del 0 al 15
-for i in range(16):
-    binario = bin(i)[2:].zfill(4)   
-    leds = ''.join(['●' if bit == '1' else '○' for bit in binario]) # Representacion visual con LEDs segun los bits
-    print(f"{i:2} -> {binario}  [{leds}]") 
+#Funcion principal que realiza el conteo binario
+def contador_binario():
+    bits = 4
+    total = 16
+    ancho_contenido = 20 + bits  
 
-    time.sleep(1) #Pausa de 1 segundo entre cada numero
+    #Imprime la parte superior del marco
+    print("+------------------------------+")
+    print("|  Contador Binario con LEDs   |")
+    print("+------------------------------+")
+
+    #Muestra los numeros dentro del marco
+    for i in range(total):
+        linea = mostrar_led(i, bits)
+        print("|    " + linea.ljust(ancho_contenido - 1) + "   |")
+
+    #Imprime la parte inferior del marco
+    print("+" + "------------------------------" + "+")
+    
