@@ -7,6 +7,7 @@ import ejercicio1
 import ejercicio2
 import ejercicio3
 import ejercicio4
+import ejercicio5
 
 """
     Presentacion del Trabajo Practico
@@ -30,7 +31,7 @@ def menu():
         print('2. Ejercicio 2 - Conversor decimal a binario')
         print('3. Ejercicio 3 - Juego: Adivina el numero!')
         print('4. Ejercicio 4 - Compuertas logicas')
-        print('5. Ejercicio 5')
+        print('5. Ejercicio 5 - Contador binario')
         print('0. Salir')
 
         opcion = input('Ingrese una opcion: ')
@@ -45,8 +46,7 @@ def menu():
             case '4':
                 ejercicio4.main()
             case '5':
-                print('Ejercicio 5')
-                #ejercicio5()
+                ejercicio5.contador_binario()
             case '0':
                 print('Gracias por usar nuestro programa! Vuelve pronto!')
                 break
