@@ -47,7 +47,7 @@ def generar_tabla_parcial(variables):
 def imprimir_tabla(tabla, variables, formula):
     variable_values = {}
     # Imprimir los nombres de las variables
-    print(f'{' | '.join(variables)} | f= {formula}')
+    print(f'{" | ".join(variables)} | f= {formula}')
     print('------'*len(variables))
     for i in range(len(tabla)):
         # Asignar a cada variable su valor correspondiente para evaluarlo
