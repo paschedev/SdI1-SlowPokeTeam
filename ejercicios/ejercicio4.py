@@ -120,7 +120,3 @@ def mantener_ejecucion():
         print('Saliendo del programa...')
     else:
         print('Opcion no valida. Saliendo del programa...')
-
-
-#Main
-main()
