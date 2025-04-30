@@ -37,7 +37,7 @@ def ingresar_valores(puerta):
 #(1, 2, 3, 4, 5 y 6 respectivamente)
 def puerta_logica_validada():
     print('Elija la puerta logica que desea simular:')
-    print('1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XOR')
+    print('1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XOR\n0. Salir del programa')
     puerta = (int(input('Ingrese el numero de la puerta logica: ')))
     while puerta not in [0, 1, 2, 3, 4, 5, 6]:
         print('Opcion no valida. Intente nuevamente:\t1. AND\t2. OR\t3. NOT\t4. NAND\t5. NOR\t6. XO\n0. Salir del programa')
@@ -82,7 +82,7 @@ def tabla_or(puerta):
 
 #NOT
 def tabla_not(puerta):
-    a, b = ingresar_valores(puerta)
+    a = ingresar_valores(puerta)
     print('Tabla de verdad NOT')
     print('A\tNOT A')
     print(f'{a}\t{not a}')
